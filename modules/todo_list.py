@@ -3,6 +3,7 @@ class TodoList:
         self.__items = []
         self.__done_items = []
 
+    # I don't like function, we should re-write it
     def add_item(self, item):
         existing_item = self.__find_item_by_priority(item.get_priority())
 
