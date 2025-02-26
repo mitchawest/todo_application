@@ -109,7 +109,7 @@ def list_done_todos():
         )
     )
 
-
+# At some point I'm going to add color with colorama
 try:
     term.clear()
     term.print("Welcome to the todo list application!\n\n", 0.01)
