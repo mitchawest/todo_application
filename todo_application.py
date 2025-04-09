@@ -109,39 +109,40 @@ def list_done_todos():
         )
     )
 
-# At some point I'm going to add color with colorama
-# new comment here
-try:
-    term.clear()
-    term.print("Welcome to the todo list application!\n\n", 0.01)
-    time.sleep(1)
-    term.print("Time to get shit done! 🚀🚀🚀\n\n", 0.01)
-    time.sleep(1)
+if __name__ == "__main__":
+    time.sleep(3)
 
-    while 1 == 1:
-        try:
-            term.clear()
-            term.print("What would you like to do?\n\n", 0.01)
-            term.ask(
-                Prompt(
-                    {
-                        "Add a todo": add_todo,
-                        "See my todos": list_todos,
-                        "Change todo priority": update_todo_priority,
-                        "Mark a todo as done": mark_todo_as_done,
-                        "Show done todos": list_done_todos,
-                        "Exit": exit_program,
-                    }
+    try:
+        term.clear()
+        term.print("Welcome to the todo list application!\n\n", 0.01)
+        time.sleep(1)
+        term.print("Time to get shit done! 🚀🚀🚀\n\n", 0.01)
+        time.sleep(1)
+
+        while 1 == 1:
+            try:
+                term.clear()
+                term.print("What would you like to do?\n\n", 0.01)
+                term.ask(
+                    Prompt(
+                        {
+                            "Add a todo": add_todo,
+                            "See my todos": list_todos,
+                            "Change todo priority": update_todo_priority,
+                            "Mark a todo as done": mark_todo_as_done,
+                            "Show done todos": list_done_todos,
+                            "Exit": exit_program,
+                        }
+                    )
                 )
-            )
-            term.clear()
+                term.clear()
 
-        except ValueError as e:
-            term.clear()
-            term.print(Fore.RED + f"{str(e)}\n\n", 0.005)
-            print(Style.RESET_ALL)
-            time.sleep(2)
+            except ValueError as e:
+                term.clear()
+                term.print(Fore.RED + f"{str(e)}\n\n", 0.005)
+                print(Style.RESET_ALL)
+                time.sleep(2)
 
-except KeyboardInterrupt:
-    file_manager.save_todos_to_file(todo_list.get_items())
-    exit_program()
+    except KeyboardInterrupt:
+        file_manager.save_todos_to_file(todo_list.get_items())
+        exit_program()

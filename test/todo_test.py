@@ -18,4 +18,3 @@ def test_todo_negative_path():
     assert error is not None
     assert isinstance(error, ValueError)
     assert str(error) == "Submitted name None is not a string"
-    assert error is None

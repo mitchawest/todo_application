@@ -1,8 +1,8 @@
 class Todo:
-    def __init__(self, priority, name):
+    def __init__(self, priority, name, is_done=False):
         self.__priority = self.__normalize_priority(priority)
         self.__name = self.__normalize_name(name)
-        self.__is_done = False
+        self.__is_done = is_done
 
     def __normalize_priority(self, priority):
         try:
